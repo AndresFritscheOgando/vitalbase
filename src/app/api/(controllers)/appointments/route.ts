@@ -3,12 +3,7 @@ import { db } from '@/server/db';
 
 export async function GET() {
   try {
-    const appointments = await db.appointment.findMany({
-      include: {
-        patient: true,
-        doctor: true,
-      },
-    });
+    const appointments = await db.appointment.findMany();
     return NextResponse.json(appointments);
   } catch (error) {
     console.error('Error fetching appointments:', error);

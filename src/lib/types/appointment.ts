@@ -5,8 +5,6 @@ export interface Appointment {
     id: string;
     date: Date;
     reason: string;
-    patientId: string;
-    doctorId: string;
     patient: Patient;
     doctor: Doctor;
     createdAt: Date;

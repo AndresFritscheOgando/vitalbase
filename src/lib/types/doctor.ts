@@ -5,6 +5,8 @@ export interface Doctor {
     id: string;
     name: string;
     speciality: string;
+    address: string;
+    isActive: boolean;
     email: string;
     password: string;
     phone: string;
