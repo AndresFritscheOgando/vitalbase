@@ -22,6 +22,7 @@ model Patient {
   gender      String
   contactInfo String
   history     String?
+  isActive    Boolean @default(true)
   appointments Appointment[]
   prescriptions Prescription[]
   createdAt   DateTime @default(now())
@@ -35,6 +36,8 @@ model Doctor {
   email       String
   password    String
   phone       String
+  address     String
+  isActive    Boolean @default(true)
   createdAt   DateTime @default(now())
   updatedAt   DateTime @default(now())
   appointments Appointment[]
@@ -49,6 +52,16 @@ model Appointment {
   patientId String
   doctor    Doctor   @relation(fields: [doctorId], references: [id])
   doctorId  String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now())
+}
+
+model Services {
+  id        String   @id @default(cuid())
+  name      String
+  description String
+  isActive  Boolean @default(true)
+  price     Float
   createdAt DateTime @default(now())
   updatedAt DateTime @default(now())
 }
